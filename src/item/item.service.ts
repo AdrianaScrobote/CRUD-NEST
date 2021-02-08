@@ -17,4 +17,8 @@ export class ItemService {
   public async create(dto: ItemDTO): Promise<ItemDTO> {
     return this.repo.save(dto)
   }
+  
+  public async findOne(id: string): Promise<ItemDTO> {
+    return this.repo.findOne({where: { id, }, });
+  }
 }
