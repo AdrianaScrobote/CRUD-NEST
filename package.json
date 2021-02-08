@@ -30,11 +30,13 @@
     "@nestjs/core": "^7.5.1",
     "@nestjs/platform-express": "^7.5.1",
     "@nestjs/typeorm": "^7.1.5",
+    "class-validator": "^0.13.1",
     "dotenv": "^8.2.0",
     "pg": "^8.5.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.3",
+    "swagger": "^0.7.5",
     "typeorm": "^0.2.30"
   },
   "devDependencies": {

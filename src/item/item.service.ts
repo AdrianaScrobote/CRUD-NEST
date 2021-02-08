@@ -4,6 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Item } from '../item/item.entity';
 import { Repository } from 'typeorm';
+import { ItemDTO } from '../item/dto/item.dto'
 
 @Injectable()
 export class ItemService {
@@ -11,5 +12,9 @@ export class ItemService {
 
   public async getAll() {
     return await this.repo.find();
+  }
+
+  public async create(dto: ItemDTO): Promise<ItemDTO> {
+    return this.repo.save(dto)
   }
 }
