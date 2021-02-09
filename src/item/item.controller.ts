@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
 import { ItemService } from './item.service';
 import { ItemDTO } from '../item/dto/item.dto'
 
@@ -29,6 +29,11 @@ export class ItemController {
       item.lastChangedDateTime = date
 
       return this.serv.create(item);
+  }
+
+  @Delete('/:id')
+  public async delete(@Param('id') id: string): Promise<void> {
+    this.serv.delete(id);
   }
 
   public async findOne(id: string): Promise<ItemDTO> {
