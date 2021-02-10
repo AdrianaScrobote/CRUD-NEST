@@ -19,4 +19,8 @@ export class Fornecedor {
 
   @Column({ type: 'varchar', length: 300 })
   lastChangedBy: string;
+
+  // Define um relacionamento de um-para-muitos, onde um fornecedor pode ter N itens
+  @OneToMany(type => Item, item => item.fornecedor)
+  public itens: Item[];
 }

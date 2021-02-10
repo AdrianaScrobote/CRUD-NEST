@@ -36,4 +36,7 @@ export class Item {
 
   @Column({ type: 'varchar', length: 300, nullable: true })
   internalComment: string | null;
+
+  @ManyToOne(type => Fornecedor, fornecedor => fornecedor.itens)
+  fornecedor: Fornecedor;
 }
