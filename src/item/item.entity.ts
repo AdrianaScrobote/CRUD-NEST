@@ -1,5 +1,6 @@
 // item.entity.ts
-import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn, CreateDateColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn, CreateDateColumn, ManyToOne } from 'typeorm';
+import { Fornecedor } from '../fornecedor/fornecedor.entity'
 
 @Entity({ name: 'item' })
 export class Item {
