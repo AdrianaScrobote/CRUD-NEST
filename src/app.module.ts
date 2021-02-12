@@ -5,12 +5,14 @@ import { AppService } from './app.service';
 import { configService } from './config/config.service';
 import { ItemModule } from './item/item.module'
 import { FornecedorModule } from './fornecedor/fornecedor.module'
+import { PedidoModule } from './pedido/pedido.module'
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
     ItemModule,
-    FornecedorModule
+    FornecedorModule,
+    PedidoModule
   ],
   controllers: [AppController],
   providers: [AppService]

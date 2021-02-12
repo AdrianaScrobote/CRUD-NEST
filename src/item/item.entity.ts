@@ -1,6 +1,7 @@
 // item.entity.ts
-import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn, CreateDateColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn, CreateDateColumn, ManyToOne, ManyToMany } from 'typeorm';
 import { Fornecedor } from '../fornecedor/fornecedor.entity'
+import { Pedido } from '../pedido/pedido.entity'
 
 @Entity({ name: 'item' })
 export class Item {
@@ -13,8 +14,6 @@ export class Item {
 
   @Column({ type: 'varchar', length: 300 })
   description: string;
-
-  
 
   @Column({ type: 'boolean', default: true })
   isActive: boolean;
@@ -39,4 +38,8 @@ export class Item {
 
   @ManyToOne(type => Fornecedor, fornecedor => fornecedor.itens)
   fornecedor: Fornecedor;
+
+  @ManyToMany(() => Pedido, (pedido: Pedido) => pedido.itens)
+  public pedidos: Pedido[];
+
 }
