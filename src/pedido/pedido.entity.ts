@@ -8,20 +8,23 @@ export class Pedido {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @CreateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
-  createDateTime: Date;
+  @CreateDateColumn({ name: 'created_at' })
+  public createdAt: Date
 
   @Column({ type: 'varchar', length: 300 })
   createdBy: string;
 
-  @UpdateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
-  lastChangedDateTime: Date;
+  @UpdateDateColumn({ name: 'updated_at' })
+  public updatedAt: Date
 
   @Column({ type: 'varchar', length: 300 })
   lastChangedBy: string;
 
-  @ManyToMany(() => Item, (item: Item) => item.pedidos)
-  @JoinTable() // coloca somente em um lado da relação
-  public itens: Item[];
+  /*@ManyToMany(() => Item)
+  @JoinTable()
+  public itens: Item[];*/
 
+  @ManyToMany(() => Item, (item: Item) => item.pedidos)
+  @JoinTable()
+  public itens: Item[];
 }

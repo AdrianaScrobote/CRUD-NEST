@@ -41,5 +41,4 @@ export class Item {
 
   @ManyToMany(() => Pedido, (pedido: Pedido) => pedido.itens)
   public pedidos: Pedido[];
-
 }
