@@ -24,7 +24,7 @@ export class PedidoController {
 
       pedido.createdBy = pedidoDto.createdBy
       pedido.lastChangedBy = pedidoDto.lastChangedBy
-      pedido.lastChangedDateTime = date
+      pedido.createdAt = date
 
       return this.serv.create(pedido);
   }

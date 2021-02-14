@@ -1,20 +1,23 @@
 // pedido.dto.ts
-import { IsString, IsUUID, IsDate} from 'class-validator';
-import { Pedido } from '../pedido.entity';
+import { IsString, IsUUID, IsDate, IsObject} from 'class-validator';
+import { Item } from '../../item/item.entity';
 
 export class PedidoDTO implements Readonly<PedidoDTO> {
   @IsUUID()
   id: string;
 
   @IsDate()
-  createDateTime: Date;
+  createdAt: Date;
 
   @IsString()
   createdBy: string;
 
   @IsDate()
-  lastChangedDateTime: Date;
+  updatedAt: Date;
 
   @IsString()
   lastChangedBy: string;
+
+  @IsObject()
+  itens: Item[];
 }
