@@ -11,6 +11,11 @@ export class ItemController {
     return await this.serv.getAll();
   }
 
+  @Get('/treeItem')
+  public async getAllTreeItem() {
+    return await this.serv.getAllTreeItem();
+  }
+
   @Post('')
   public async post(@Body() dto: ItemDTO): Promise<ItemDTO> {
     return this.serv.create(dto);

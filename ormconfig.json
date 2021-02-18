@@ -8,6 +8,8 @@
   "entities": [
     "**/*.entity{.ts,.js}"
   ],
+  "logging": "all",
+  "logger": "advanced-console",
   "migrationsTableName": "migration",
   "migrations": [
     "src/migration/*.ts"

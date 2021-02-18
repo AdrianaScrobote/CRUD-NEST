@@ -1,8 +1,10 @@
 // item.entity.ts
-import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn, CreateDateColumn, ManyToOne, ManyToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn, 
+  CreateDateColumn, ManyToOne, ManyToMany, TreeParent, TreeChildren, Tree, TreeLevelColumn } from 'typeorm';
 import { Fornecedor } from '../fornecedor/fornecedor.entity'
 import { Pedido } from '../pedido/pedido.entity'
 
+@Tree("materialized-path")
 @Entity({ name: 'item' })
 export class Item {
 
@@ -41,4 +43,10 @@ export class Item {
 
   @ManyToMany(() => Pedido, (pedido: Pedido) => pedido.itens)
   public pedidos: Pedido[];
+
+  @TreeParent()
+  public parent: Item
+
+  @TreeChildren()
+  public children: Item[];
 }

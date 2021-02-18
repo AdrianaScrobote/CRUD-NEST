@@ -1,5 +1,5 @@
 // item.dto.ts
-import { IsString, IsUUID, IsBoolean, IsDate} from 'class-validator';
+import { IsString, IsUUID, IsBoolean, IsDate, IsOptional} from 'class-validator';
 import { Item } from '../item.entity';
 
 export class ItemDTO implements Readonly<ItemDTO> {
@@ -30,4 +30,6 @@ export class ItemDTO implements Readonly<ItemDTO> {
   @IsString()
   internalComment: string;
 
+  @IsOptional()
+  public parent: Item
 }
