@@ -31,5 +31,5 @@ export class ItemDTO implements Readonly<ItemDTO> {
   internalComment: string;
 
   @IsOptional()
-  public parent: Item
+  public parent: Item = null
 }

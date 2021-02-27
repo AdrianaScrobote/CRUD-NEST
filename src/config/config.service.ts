@@ -41,6 +41,8 @@ class ConfigService {
       database: this.getValue('POSTGRES_DATABASE'),
 
       entities: ['**/*.entity{.ts,.js}'],
+      logging: 'all',
+      logger: 'advanced-console',
 
       migrationsTableName: 'migration',
 
