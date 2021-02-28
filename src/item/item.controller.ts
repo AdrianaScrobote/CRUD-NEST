@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param, Res } from '@nestjs/common';
 import { ItemService } from './item.service';
 import { ItemDTO } from '../item/dto/item.dto'
 
@@ -14,6 +14,15 @@ export class ItemController {
   @Get('/treeItem')
   public async getAllTreeItem() {
     return await this.serv.getAllTreeItem();
+  }
+
+  @Get('/csv')
+  public async getCsv(@Res() res): Promise<object>  {
+    let csv =  await this.serv.getCsv();
+
+    res.header('Content-Type', 'text/csv');
+    res.attachment('Feedback.csv');
+    return res.send(csv)
   }
 
   @Post('')
